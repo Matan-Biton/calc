@@ -1,0 +1,44 @@
+* {
+  font-size: 5vh;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+.buttons > * {
+  margin: 30px;
+}
+
+fieldset {
+  display: flex;
+  justify-content: center;
+}
+fieldset legend {
+  text-align: center;
+}
+
+#cursive {
+  font-family: cursive;
+}
+
+#serif {
+  font-family: serif;
+}
+
+#fantasy {
+  font-family: fantasy;
+}
+
+#system-ui {
+  font-family: system-ui;
+}
+
+#monospace {
+  font-family: monospace;
+}
+
+.theme-field {
+  display: flex;
+  justify-content: space-around;
+}/*# sourceMappingURL=config.css.map */

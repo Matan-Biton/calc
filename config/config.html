@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="config.css" />
+    <title>Config</title>
+  </head>
+  <body>
+    <form method="get">
+      <fieldset>
+        <legend>Chose background color:</legend>
+        <input type="color" name="colorpick" id="colorpick" value="#ffffff" />
+      </fieldset>
+      <fieldset>
+        <legend>Chose a font-family:</legend>
+        <select name="font" id="font">
+          <option id="cursive" value="cursive">cursive</option>
+          <option id="serif" value="serif">serif</option>
+          <option id="fantasy" value="fantasy">fantasy</option>
+          <option id="system-ui" value="system-ui">system-ui</option>
+          <option id="monospace" value="monospace">monospace</option>
+        </select>
+      </fieldset>
+      <fieldset class="theme-field">
+        <legend>Chose theme:</legend>
+        <div class="labelinput">
+          <label for="dark">dark</label
+          ><input type="radio" name="theme" id="dark" />
+        </div>
+        <div class="labelinput">
+          <label for="light">light</label
+          ><input type="radio" name="theme" id="light" />
+        </div>
+      </fieldset>
+      <div class="buttons">
+        <button type="submit">send</button>
+        <button type="reset">clear</button>
+      </div>
+    </form>
+  </body>
+</html>
