@@ -15,37 +15,37 @@
         <img src="images\info.svg" alt="info"/>
       </button>
       <button disabled id="name" class="triple">My Calculator</button>
-      <button id="settings" class="action" onclick="alert(id)">
+      <button id="settings" class="action" onclick="displayButtonInfo(id)">
         <img src="images\settings.svg" alt="settings" />
       </button>
       <button id="themeHendler" onclick="darkmodeHandler()">
         <img src="images\light.svg" alt="light/dark mode" />
       </button>
       <div id="screen" class="screen triple"></div>
-      <button id="back" onclick="alert(id)"><img src="images\back.svg" alt="back arrow" /></button>
-      <button id="history" onclick="alert(id)"><img src="images\history.svg" alt="history" /></button>
-      <button id="clear" class="triple" onclick="clearScreen()">c</button>
-      <button id="/" class="operator" onclick="alert(id)">/</button>
-      <button id="scientific" onclick="alert(id)"><img src="images\scientific.svg" alt="scientific section" /></button>
-      <button id="7" class="digit default" onclick="toScreen(id)">7</button>
-      <button id="8" class="digit default" onclick="toScreen(id)">8</button>
-      <button id="9" class="digit default" onclick="toScreen(id)">9</button>
-      <button id="x" class="operator" onclick="alert(id)">x</button>
-      <button id="cloud" onclick="alert(id)"><img src="images\cloud.png" alt="cloud" /></button>
-      <button id="4" class="digit default" onclick="toScreen(id)">4</button>
-      <button id="5" class="digit default" onclick="toScreen(id)">5</button>
-      <button id="6" class="digit default" onclick="toScreen(id)">6</button>
-      <button id="-" class="operator" onclick="alert(id)">-</button>
+      <button id="back" onclick="displayButtonInfo(id)"><img src="images\back.svg" alt="back arrow" /></button>
+      <button id="history" onclick="displayButtonInfo(id)"><img src="images\history.svg" alt="history" /></button>
+      <button id="clear" class="triple" onclick="displayButtonInfo()">c</button>
+      <button id="/" class="operator" onclick="displayButtonInfo(id)">/</button>
+      <button id="scientific" onclick="displayButtonInfo(id)"><img src="images\scientific.svg" alt="scientific section" /></button>
+      <button id="7" class="digit default" onclick="displayButtonInfo(id)">7</button>
+      <button id="8" class="digit default" onclick="displayButtonInfo(id)">8</button>
+      <button id="9" class="digit default" onclick="displayButtonInfo(id)">9</button>
+      <button id="x" class="operator" onclick="displayButtonInfo(id)">x</button>
+      <button id="cloud" onclick="displayButtonInfo(id)"><img src="images\cloud.png" alt="cloud" /></button>
+      <button id="4" class="digit default" onclick="displayButtonInfo(id)">4</button>
+      <button id="5" class="digit default" onclick="displayButtonInfo(id)">5</button>
+      <button id="6" class="digit default" onclick="displayButtonInfo(id)">6</button>
+      <button id="-" class="operator" onclick="displayButtonInfo(id)">-</button>
       <button disabled></button>
-      <button id="1" class="digit default" onclick="toScreen(id)">1</button>
-      <button id="2" class="digit default" onclick="toScreen(id)">2</button>
-      <button id="3" class="digit default" onclick="toScreen(id)">3</button>
-      <button id="+" class="operator" onclick="alert(id)">+</button>
+      <button id="1" class="digit default" onclick="displayButtonInfo(id)">1</button>
+      <button id="2" class="digit default" onclick="displayButtonInfo(id)">2</button>
+      <button id="3" class="digit default" onclick="displayButtonInfo(id)">3</button>
+      <button id="+" class="operator" onclick="displayButtonInfo(id)">+</button>
       <button disabled></button>
-      <button id="+-" onclick="alert(id)">+<br />-</button>
-      <button id="0" class="digit default" onclick="toScreen(id)">0</button>
-      <button id="." class="dot default" onclick="toScreen(id)">.</button>
-      <button id="=" class="operator execute" onclick="alert(id)">=</button>
+      <button id="+-" onclick="displayButtonInfo(id)">+<br />-</button>
+      <button id="0" class="digit default" onclick="displayButtonInfo(id)">0</button>
+      <button id="." class="dot default" onclick="displayButtonInfo(id)">.</button>
+      <button id="=" class="operator execute" onclick="displayButtonInfo(id)">=</button>
     </div>
   </body>
 </html>
