@@ -8,41 +8,50 @@ function clearScreen() {
 }
 
 function toScreen(id) {
-    let scr = document.getElementById('screen').innerHTML;
-    if (id != '.' || !scr.includes('.')) {
-        if (curOperand || id != 0) {
-            document.getElementById('screen').innerHTML += id;
-            curOperand == id;
-        }
+    if (!curOperand || !(id == '.' && curOperand.includes('.')) && !(id == 0 && curOperand == 0)) {
+        document.getElementById('screen').innerHTML += id;
+        curOperand = curOperand ? curOperand + id : id;   
     }
 }
 
 function calculate() {
-    curOperand = Number(curOperand);
-    firstOperand = Number(firstOperand);
-    let ans = 0;
-    if (curOperator == '+') {
-        ans = firstOperand + curOperand;
-    } else if (curOperator == '-') {
-        ans = firstOperand - curOperand;
-    } else if (curOperator == 'x') {
-        ans = firstOperand * curOperand;
-    } else if (curOperator == '/') {
-        ans = firstOperand / curOperand;
+    if (curOperand && firstOperand && curOperator) {
+        curOperand = Number(curOperand);
+        firstOperand = Number(firstOperand);
+        let ans = 0;
+        if (curOperator == '+') {
+            ans = firstOperand + curOperand;
+        } else if (curOperator == '-') {
+            ans = firstOperand - curOperand;
+        } else if (curOperator == 'x') {
+            ans = firstOperand * curOperand;
+        } else if (curOperator == '/') {
+            ans = firstOperand / curOperand;
+        }
+        curOperator = curOperand = null;
+        firstOperand = ans;
+        document.getElementById('screen').innerHTML = firstOperand;
     }
-    curOperator = curOperand = null;
-    return ans;
 }
 
 function operatorClicked(id) {
-    if (!curOperator & !firstOperand) {
-        document.getElementById('screen').innerHTML += ' ' + id + ' ';
+    if (firstOperand && !curOperator) {        
         curOperator = id;
-        firstOperand = curOperand;
-        curOperand = null;
+        document.getElementById('screen').innerHTML += ' ' + curOperator + ' ';
+    } else if (curOperand) {
+        if (!curOperator) {
+            firstOperand = curOperand;
+            curOperand = null;
+            curOperator = id;
+            document.getElementById('screen').innerHTML += ' ' + curOperator + ' ';
+        } else if (firstOperand) {
+            calculate();
+            curOperator = id;
+            document.getElementById('screen').innerHTML += ' ' + curOperator + ' ';
+        } else {
+            alert(3);
+            curOperator = id;
+            document.getElementById('screen').innerHTML = firstOperand + ' ' + curOperator + ' ';
+        }
     }
-    // if (curOperand & firstOperand) {
-    //     firstOperand = calculate();
-    //     curOperator = id;
-    //     document.getElementById('screen').innerHTML = firstOperand + ' ' + id + ' ';
 }
