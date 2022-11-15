@@ -4,7 +4,7 @@ let curOperator = null;
 
 function clearScreen() {
     document.getElementById('screen').innerHTML = ''; 
-    curOperand = operand2 = curOperator = null;
+    curOperand = firstOperand = curOperator = null;
 }
 
 function toScreen(id) {
