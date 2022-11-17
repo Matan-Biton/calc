@@ -26,7 +26,7 @@ function alertInfo() {
 }
 
 function config() {
-  document.querySelector('#config').onclick = () => window.open('config/config.html', '_blank');
+  location.href = 'config/config.html';
 }
 
 function back() {
