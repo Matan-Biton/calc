@@ -22,11 +22,30 @@ function darkmodeHandler() {
 }
 
 function alertInfo() {
-  alert('Developer name: Matan Biton\nCalculator Version: Stage I\nThis is my basic calculator, have fun with it :)');
+  alert('Developer name: Matan Biton\nCalculator Version: Stage II\nThis is my basic calculator, have fun with it :)');
 }
 
 function config() {
   document.querySelector('#config').onclick = () => window.open('config/config.html', '_blank');
+}
+
+function back() {
+  document.querySelector('#screen').textContent = '';
+  if ((curOperand || firstOperand) && !curOperator) {
+    clearScreen();
+  } else if (curOperator && !curOperand) {
+    curOperator = null;
+    document.querySelector('#screen').textContent = firstOperand;
+  } else {
+    curOperand = null;
+    document.querySelector('#screen').textContent = firstOperand + ' ' + curOperator + ' ';
+  }
+    
+}
+
+function clearScreen() {
+    document.querySelector('#screen').textContent = ''; 
+    curOperand = firstOperand = curOperator = null;
 }
 
 

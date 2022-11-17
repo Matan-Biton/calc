@@ -3,24 +3,6 @@ let firstOperand = null;
 let curOperator = null;
 let curValue = null;
 
-function clearScreen() {
-    document.querySelector('#screen').textContent = ''; 
-    curOperand = firstOperand = curOperator = null;
-}
-
-function back() {
-    document.querySelector('#screen').textContent = '';
-    if ((curOperand || firstOperand) && !curOperator) {
-        clearScreen();
-    } else if (curOperator && !curOperand) {
-        curOperator = null;
-        document.querySelector('#screen').textContent = firstOperand;
-    } else {
-        curOperand = null;
-        document.querySelector('#screen').textContent = firstOperand + ' ' + curOperator + ' ';
-    }
-    
-}
 
 function toScreen(id) {
     if (!curOperand) {  
