@@ -1,57 +1,64 @@
 let curOperand = null;
 let firstOperand = null;
 let curOperator = null;
+let curValue = null;
 
 function clearScreen() {
-    document.getElementById('screen').innerHTML = ''; 
+    document.querySelector('#screen').textContent = ''; 
     curOperand = firstOperand = curOperator = null;
 }
 
+function back() {
+    document.querySelector('#screen').textContent = '';
+    if ((curOperand || firstOperand) && !curOperator) {
+        clearScreen();
+    } else if (curOperator && !curOperand) {
+        curOperator = null;
+        document.querySelector('#screen').textContent = firstOperand;
+    } else {
+        curOperand = null;
+        document.querySelector('#screen').textContent = firstOperand + ' ' + curOperator + ' ';
+    }
+    
+}
+
 function toScreen(id) {
-    if (!curOperand || !(id == '.' && curOperand.includes('.')) && !(id == 0 && curOperand == 0)) {
-        document.getElementById('screen').innerHTML += id;
+    if (!curOperand) {  
+        if (firstOperand && !curOperator) {
+            clearScreen();
+        }
+        document.querySelector('#screen').textContent += id;
+        curOperand = id;
+    } else if (!(id == '.' && curOperand.includes('.')) && !(id == 0 && curOperand == 0)) {
+        document.querySelector('#screen').textContent += id;
         curOperand = curOperand ? curOperand + id : id;   
     }
 }
 
 function calculate() {
-    if (curOperand && firstOperand && curOperator) {
-        curOperand = Number(curOperand);
-        firstOperand = Number(firstOperand);
-        let ans = 0;
-        if (curOperator == '+') {
-            ans = firstOperand + curOperand;
-        } else if (curOperator == '-') {
-            ans = firstOperand - curOperand;
-        } else if (curOperator == 'x') {
-            ans = firstOperand * curOperand;
-        } else if (curOperator == '/') {
-            ans = firstOperand / curOperand;
-        }
+    if (curOperand && firstOperand) {
+        curOperator = curOperator == 'x' ? '*' : curOperator;
+        curValue = firstOperand = eval(firstOperand + curOperator + curOperand)
         curOperator = curOperand = null;
-        firstOperand = ans;
-        document.getElementById('screen').innerHTML = firstOperand;
+        document.querySelector('#screen').textContent = curValue;
     }
 }
 
 function operatorClicked(id) {
-    if (firstOperand && !curOperator) {        
+    if (firstOperand && curOperand) {   
+        calculate();
         curOperator = id;
-        document.getElementById('screen').innerHTML += ' ' + curOperator + ' ';
+        // firstOperand = curValue;
+        document.querySelector('#screen').textContent = firstOperand + ' ' + curOperator + ' ';
     } else if (curOperand) {
         if (!curOperator) {
             firstOperand = curOperand;
             curOperand = null;
             curOperator = id;
-            document.getElementById('screen').innerHTML += ' ' + curOperator + ' ';
-        } else if (firstOperand) {
-            calculate();
-            curOperator = id;
-            document.getElementById('screen').innerHTML += ' ' + curOperator + ' ';
-        } else {
-            alert(3);
-            curOperator = id;
-            document.getElementById('screen').innerHTML = firstOperand + ' ' + curOperator + ' ';
+            document.querySelector('#screen').textContent += ' ' + curOperator + ' ';
         }
+    } else if (firstOperand) {
+        curOperator = id;
+        document.querySelector('#screen').textContent = firstOperand + ' ' + curOperator + ' ';
     }
 }

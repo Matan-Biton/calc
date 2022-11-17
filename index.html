@@ -8,44 +8,57 @@
     <title>My Calculator</title>
   </head>
   <body>
-    <script src="js/calculator.js"></script>
     <script src="js/application.js"></script>
+    <script src="js/calculator.js"></script>
+    <div class="log hidden"></div>
     <div class="basic">
       <button id="info" class="action" onclick="alertInfo()">
-        <img src="images\info.svg" alt="info"/>
+        <img src="images\info.svg" alt="info" />
       </button>
-      <button disabled id="name" class="triple">My Calculator</button>
-      <button id="settings" class="action" onclick="alert(id)">
+      <div id="name" class="triple">My Calculator</div>
+      <button id="config" class="action" onclick="config()">
         <img src="images\settings.svg" alt="settings" />
       </button>
       <button id="themeHendler" onclick="darkmodeHandler()">
         <img src="images\light.svg" alt="light/dark mode" />
       </button>
       <div id="screen" class="screen triple"></div>
-      <button id="back" onclick="alert(id)"><img src="images\back.svg" alt="back arrow" /></button>
-      <button id="history" onclick="alert(id)"><img src="images\history.svg" alt="history" /></button>
+      <button id="back" onclick="back()">
+        <img src="images\back.svg" alt="back arrow" />
+      </button>
+      <button id="log" onclick="openLog()">
+        <img src="images\history.svg" alt="history" />
+      </button>
       <button id="clear" class="triple" onclick="clearScreen()">c</button>
-      <button id="/" class="operator" onclick="operatorClicked(id)">/</button>
-      <button id="scientific" onclick="alert(id)"><img src="images\scientific.svg" alt="scientific section" /></button>
-      <button id="7" class="digit default" onclick="toScreen(id)">7</button>
-      <button id="8" class="digit default" onclick="toScreen(id)">8</button>
-      <button id="9" class="digit default" onclick="toScreen(id)">9</button>
-      <button id="x" class="operator" onclick="operatorClicked(id)">x</button>
-      <button id="cloud" onclick="alert(id)"><img src="images\cloud.png" alt="cloud" /></button>
-      <button id="4" class="digit default" onclick="toScreen(id)">4</button>
-      <button id="5" class="digit default" onclick="toScreen(id)">5</button>
-      <button id="6" class="digit default" onclick="toScreen(id)">6</button>
-      <button id="-" class="operator" onclick="operatorClicked(id)">-</button>
-      <button disabled></button>
-      <button id="1" class="digit default" onclick="toScreen(id)">1</button>
-      <button id="2" class="digit default" onclick="toScreen(id)">2</button>
-      <button id="3" class="digit default" onclick="toScreen(id)">3</button>
-      <button id="+" class="operator" onclick="operatorClicked(id)">+</button>
-      <button disabled></button>
-      <button id="+-" onclick="alert(id)">+<br />-</button>
-      <button id="0" class="digit default" onclick="toScreen(id)">0</button>
-      <button id="." class="dot default" onclick="toScreen(id)">.</button>
-      <button id="=" class="operator execute" onclick="calculate()">=</button>
+      <button id="/" class="operator editor">/</button>
+      <button id="scientific" onclick="openScientific()">
+        <img src="images\scientific.svg" alt="scientific section" />
+      </button>
+      <button id="7" class="digit secondary editor">7</button>
+      <button id="8" class="digit secondary editor">8</button>
+      <button id="9" class="digit secondary editor">9</button>
+      <button id="x" class="operator editor">x</button>
+      <button id="cloud" onclick="alert(id)">
+        <img src="images\cloud.png" alt="cloud" />
+      </button>
+      <button id="4" class="digit secondary editor">4</button>
+      <button id="5" class="digit secondary editor">5</button>
+      <button id="6" class="digit secondary editor">6</button>
+      <button id="-" class="operator editor">-</button>
+      <div></div>
+      <button id="1" class="digit secondary editor">1</button>
+      <button id="2" class="digit secondary editor">2</button>
+      <button id="3" class="digit secondary editor">3</button>
+      <button id="+" class="operator editor">+</button>
+      <div></div>
+      <button id="+-" onclick="alert(id)">
+        +<br />
+        -
+      </button>
+      <button id="0" class="digit secondary editor">0</button>
+      <button id="." class="dot secondary editor">.</button>
+      <button id="=" class="execute" onclick="calculate()">=</button>
     </div>
+    <div class="science hidden"></div>
   </body>
 </html>
