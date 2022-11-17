@@ -23,6 +23,7 @@ function calculate() {
         curValue = firstOperand = eval(firstOperand + curOperator + curOperand)
         curOperator = curOperand = null;
         document.querySelector('#screen').textContent = curValue;
+        alert(curValue)
     }
 }
 
