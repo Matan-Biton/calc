@@ -18,7 +18,7 @@
       <button id="config" class="action" onclick="openConfig()">
         <img src="\images\settings.svg" alt="settings" />
       </button>
-      <button id="themeHandler" onclick="darkmodeHandler()">
+      <button id="themeHandler" onclick="screenLight()">
         <img src="\images\light.svg" alt="light/dark mode" />
       </button>
       <div id="screen" class="screen triple"></div>
@@ -58,6 +58,16 @@
       <button id="." class="dot secondary editor">.</button>
       <button id="=" class="execute" onclick="calculate()">=</button>
     </div>
-    <div class="science hidden"></div>
+    <div class="science hidden">
+      <div class="title fullWidth"> scientific</div>
+      <div class="empty fullWidth"></div>
+      <button><img src="/images/x-squared.svg" alt="x squared" /></button
+      ><button>
+        <img src="/images/x-squared-root.svg" alt="x squared root" /></button
+      ><button class="MO2"><img src="/images/x-pow-y.svg" alt="x powered by y" /></button
+      ><button class="MO2">
+        <img src="/images/yth-root-x.svg" alt="the yth root of x" /></button
+      ><button class="MO1">mod</button><button class="MO2">𝛑</button><button class="fullWidth MO1" id="base">Base<sub>2</sub></button>
+    </div>
   </body>
 </html>
