@@ -9,11 +9,16 @@
 :root {
   --secondary-color: #e9e9e9;
   --main-color: #d9e2f3;
+  --science-color: cyan;
+  --log-color: lightgreen;
 }
 
 .dark {
   --secondary-color: #606060;
   --main-color: #777;
+  --science-color: #066;
+  --log-color: #606;
+
 }  
 
 body {
@@ -28,7 +33,7 @@ body {
   }  
   
   .log {
-    background-color: yellowgreen;
+    background-color: var(--log-color);
     flex: 2;
   }  
   
@@ -46,11 +51,11 @@ body {
   }
   
   .science {
-    background-color: cyan;
+    background-color: var(--science-color);
     flex: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 4fr repeat(4,2fr);
+    grid-template-rows: 5fr repeat(4,2fr);
     text-align: center;
 
     div {
@@ -136,14 +141,18 @@ body {
 @media screen and (max-width: 800px) {
   body {
     flex-direction: column;
-    overflow-y: scroll;
+    height: 100%;
 
-    .empty {
-      display: none;
+    .basic {
+      img {
+      max-height: 3vh;
+      max-width: 3vh;
+      }
     }
 
     .science {
       grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
 
       &:first-child{grid-column: 1/-1;}
 
@@ -157,11 +166,6 @@ body {
 
     .log {
       order: 1;
-    }
-
-    .basic img {
-      max-height: 5vh;
-      max-width: 5vw;
     }
 
     * {
