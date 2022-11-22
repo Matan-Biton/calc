@@ -2,44 +2,43 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>My Calculator</title>
   </head>
-  <body>
-    <script src="js/application.js"></script>
-    <script src="js/calculator.js"></script>
+  <body class="dark">
+    <script src="/scripts/application.js"></script>
+    <script src="/scripts/calculator.js"></script>
     <div class="log hidden"></div>
     <div class="basic">
       <button id="info" class="action" onclick="alertInfo()">
-        <img src="images\info.svg" alt="info" />
+        <img src="\images\info.svg" alt="info" />
       </button>
       <div id="name" class="triple">My Calculator</div>
-      <button id="config" class="action" onclick="config()">
-        <img src="images\settings.svg" alt="settings" />
+      <button id="config" class="action" onclick="openConfig()">
+        <img src="\images\settings.svg" alt="settings" />
       </button>
-      <button id="themeHendler" onclick="darkmodeHandler()">
-        <img src="images\light.svg" alt="light/dark mode" />
+      <button id="themeHandler" onclick="darkmodeHandler()">
+        <img src="\images\light.svg" alt="light/dark mode" />
       </button>
       <div id="screen" class="screen triple"></div>
       <button id="back" onclick="back()">
-        <img src="images\back.svg" alt="back arrow" />
+        <img src="\images\back.svg" alt="back arrow" />
       </button>
       <button id="log" onclick="openLog()">
-        <img src="images\history.svg" alt="history" />
+        <img src="\images\history.svg" alt="history" />
       </button>
       <button id="clear" class="triple" onclick="clearScreen()">c</button>
       <button id="/" class="operator editor">/</button>
       <button id="scientific" onclick="openScientific()">
-        <img src="images\scientific.svg" alt="scientific section" />
+        <img src="\images\scientific.svg" alt="scientific section" />
       </button>
       <button id="7" class="digit secondary editor">7</button>
       <button id="8" class="digit secondary editor">8</button>
       <button id="9" class="digit secondary editor">9</button>
       <button id="x" class="operator editor">x</button>
       <button id="cloud" onclick="alert(id)">
-        <img src="images\cloud.png" alt="cloud" />
+        <img src="\images\cloud.png" alt="cloud" />
       </button>
       <button id="4" class="digit secondary editor">4</button>
       <button id="5" class="digit secondary editor">5</button>
