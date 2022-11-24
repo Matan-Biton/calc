@@ -1,40 +1,43 @@
-let curOperand = null;
-let firstOperand = null;
-let curOperator = null;
-let curValue = null;
-let prevCalcs = "";
+let curOperand = "";
+let firstOperand = "";
+let curOperator = "";
+const byId = document.getElementById.bind(document);
+const qsa = document.querySelector.bind(document);
+const screenElement = byId("screen");
+const memory = qsa(".memory");
 
 function toScreen(id: string) {
   //accepts only a digit or a dot and updates the current operand, only accepts valid option.
   //accepts only one zero at the beginning to allow for 0.rest and accepts only one use of a dot in a number.
-  if (curOperand === null) {
+  if (!curOperand) {
     if (firstOperand && !curOperator) {
       clearScreen();
     }
-    document.querySelector("#screen").textContent += id;
+    screenElement.textContent += id;
     curOperand = id;
   } else if (
     !(id == "." && curOperand.includes(".")) &&
     !(id == "0" && curOperand == "0")
   ) {
-      if (curOperand == "0") {
-          curOperand = id
-          document.querySelector("#screen").textContent = document.querySelector("#screen").textContent.slice(0,-1) + curOperand;
-      } else {
-        document.querySelector("#screen").textContent += id;
-        curOperand = curOperand ? curOperand + id : id;
-      }
+    if (curOperand == "0") {
+      curOperand = id;
+      screenElement.textContent =
+        screenElement.textContent.slice(0, -1) + curOperand;
+    } else {
+      screenElement.textContent += id;
+      curOperand = curOperand ? curOperand + id : id;
+    }
   }
 }
 
 function calculate() {
   //eval the equation when called given that there are two operands (if there are two operands there most be an operator)
-    if (curOperand != null && firstOperand != null) {
-        const screen = document.getElementById('screen').innerText
-        prevCalcs += screen + eval(screen.replace('x', '*'));
-        curValue = firstOperand = eval(screen.replace("x", "*"));
-        curOperator = curOperand = null;
-        document.querySelector("#screen").textContent = curValue;
+  if (curOperand && firstOperand) {
+    const screen = screenElement.innerText;
+    firstOperand = eval(screen.replace("x", "*")).toString();
+    curOperator = curOperand = "";
+    toMemory();
+    screenElement.textContent = firstOperand;
   }
 }
 
@@ -42,21 +45,19 @@ function operatorClicked(id: string) {
   //when there is no operand do nothing.
   //in case of one operand and no operator it sets the operator and starts filling the other operand.
   //when there are two operands (and operator) there is a call for calculate and then an update for the first operand and operator
-  if (firstOperand != null && curOperand != null) {
+  if (curOperand && firstOperand) {
     calculate();
     curOperator = id;
-    document.querySelector("#screen").textContent =
-      firstOperand + " " + curOperator + " ";
-  } else if (curOperand != null) {
+    screenElement.textContent = firstOperand + " " + curOperator + " ";
+  } else if (curOperand) {
     if (!curOperator) {
       firstOperand = curOperand;
-      curOperand = null;
+      curOperand = "";
       curOperator = id;
-      document.querySelector("#screen").textContent += " " + curOperator + " ";
+      screenElement.textContent += " " + curOperator + " ";
     }
-  } else if (firstOperand != null) {
+  } else if (firstOperand) {
     curOperator = id;
-    document.querySelector("#screen").textContent =
-      firstOperand + " " + curOperator + " ";
+    screenElement.textContent = firstOperand + " " + curOperator + " ";
   }
 }

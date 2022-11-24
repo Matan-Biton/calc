@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-weight: 700;
   font-size: 1.3rem;
+  font-family: inherit;
 }
 
 :root {
@@ -25,14 +26,19 @@ body {
   width: 90vw;
   height: 100vh;
   margin-inline: auto;
-  font-family: monospace;
-}
-body button {
-  font-family: inherit;
+  font-family: cursive;
+  overflow: hidden;
 }
 body .log {
   background-color: var(--log-color);
   flex: 2;
+}
+body .log * {
+  text-align: center;
+}
+body .log .memory {
+  display: flex;
+  flex-flow: column;
 }
 body img {
   height: 6vh;

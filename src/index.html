@@ -7,9 +7,13 @@
     <title>My Calculator</title>
   </head>
   <body class="dark">
-    <script src="/scripts/application.js"></script>
-    <script src="/scripts/calculator.js"></script>
-    <div class="log hidden"></div>
+    <div class="log hidden">
+      <div>
+        memory
+        <hr />
+      </div>
+      <div class="memory"></div>
+    </div>
     <div class="basic">
       <button id="info" class="action" onclick="alertInfo()">
         <img src="\images\info.svg" alt="info" />
@@ -59,14 +63,18 @@
       <button id="=" class="execute" onclick="calculate()">=</button>
     </div>
     <div class="science hidden">
-      <div class="title fullWidth"> scientific</div>
+      <div class="title fullWidth">scientific</div>
       <button><img src="/images/x-squared.svg" alt="x squared" /></button
       ><button>
         <img src="/images/x-squared-root.svg" alt="x squared root" /></button
-      ><button class="MO2"><img src="/images/x-pow-y.svg" alt="x powered by y" /></button
+      ><button class="MO2">
+        <img src="/images/x-pow-y.svg" alt="x powered by y" /></button
       ><button class="MO2">
         <img src="/images/yth-root-x.svg" alt="the yth root of x" /></button
-      ><button class="MO1">mod</button><button class="MO2">𝛑</button><button class="fullWidth MO1" id="base">Base<sub>2</sub></button>
+      ><button class="MO1">mod</button><button class="MO2">𝛑</button
+      ><button class="fullWidth MO1" id="base">Base<sub>2</sub></button>
     </div>
+    <script src="/scripts/application.js"></script>
+    <script src="/scripts/calculator.js"></script>
   </body>
 </html>
