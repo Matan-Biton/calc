@@ -1,10 +1,14 @@
 let curOperand = "";
 let firstOperand = "";
 let curOperator = "";
-const byId = document.getElementById.bind(document);
-const qsa = document.querySelector.bind(document);
 const screenElement = byId("screen");
-const memory = qsa(".memory");
+const memory = byId("memory");
+function byId(id) {
+    return document.getElementById(id);
+}
+function qsa(selector) {
+    return document.querySelectorAll(selector);
+}
 function toScreen(id) {
     //accepts only a digit or a dot and updates the current operand, only accepts valid option.
     //accepts only one zero at the beginning to allow for 0.rest and accepts only one use of a dot in a number.

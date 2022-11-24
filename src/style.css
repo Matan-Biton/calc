@@ -124,6 +124,10 @@ body .basic #screen {
 body .basic #screen.light {
   background-color: yellow;
 }
+body .basic #screen sup {
+  font-size: small;
+  margin: 0 0.5em;
+}
 
 @media screen and (max-width: 800px) {
   body {
