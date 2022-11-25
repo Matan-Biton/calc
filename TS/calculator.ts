@@ -60,7 +60,7 @@ function operatorClicked(id: string) {
 function scienceEval() {
   function helper(start: number) {
     const expressionToEval =
-      tokens[start] + tokens[start + 1] + tokens[start + 2];
+      tokens[start] + " " + tokens[start + 1] + " " + tokens[start + 2];
     let res = "";
     for (let i = 0; i < start; i++) {
       res += tokens[i] + " ";
@@ -76,7 +76,7 @@ function scienceEval() {
   const tokens = screenElement.innerText.replace("x", "*").split(" ");
 
   if ("*/".includes(tokens[1])) {
-    firstOperand = eval(tokens[0] + tokens[1] + tokens[2]).toString();
+    firstOperand = helper(0);
   } else if (tokens.length > 4) {
     firstOperand = "*/".includes(tokens[3]) ? helper(2) : helper(0);
   }
