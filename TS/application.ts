@@ -29,7 +29,7 @@ function openLog() {
 
 function toMemory() {
   const newChild = document.createElement("div");
-  newChild.innerHTML = `${screenElement.innerText}<div> =${firstOperand}</div>`;
+  newChild.innerHTML = `${screenElement.innerText}${window.innerWidth >= 800 ? '<br>' : ''} = ${firstOperand}`;
   memory.prepend(newChild);
 }
 
