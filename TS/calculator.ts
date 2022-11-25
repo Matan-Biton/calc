@@ -3,6 +3,7 @@ let firstOperand = "";
 let curOperator = "";
 const screenElement = byId("screen");
 const memory = byId("memory");
+let isScienceOn = false;
 
 function byId(id: string) {
   return document.getElementById(id);
@@ -31,23 +32,23 @@ function calculate() {
   if (curOperand && firstOperand) {
     firstOperand = eval(screenElement.innerText.replace("x", "*")).toString();
     curOperator = curOperand = "";
-    screenElement.textContent = firstOperand;
     toMemory();
+    screenElement.textContent = firstOperand;
   }
 }
 
 function operatorClicked(id: string) {
-	//when able, calculates
-	//when there are two operands (and operator) there is a call for calculate and then an update for the first operand and operator
+  //when able, calculates
+  //when there are two operands (and operator) there is a call for calculate and then an update for the first operand and operator
   if (!screenElement.innerText) {
-    return
+    return;
   }
-	if (curOperator) {
-		calculate();
-	} else if (curOperand) {
+  if (curOperator) {
+      calculate();
+  } else if (curOperand) {
     firstOperand = curOperand;
-		curOperand = "";
+    curOperand = "";
 	}
-  curOperator = id;
+    curOperator = id;
   screenElement.textContent = firstOperand + " " + curOperator + " ";
 }

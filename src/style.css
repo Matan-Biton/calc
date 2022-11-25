@@ -29,14 +29,14 @@ body {
   font-family: cursive;
   overflow: hidden;
 }
-body .log {
+body #log {
   background-color: var(--log-color);
   flex: 2;
 }
-body .log * {
+body #log * {
   text-align: center;
 }
-body .log .memory {
+body #log .memory {
   display: flex;
   flex-flow: column;
 }
@@ -50,7 +50,7 @@ body sub {
 body .fullWidth {
   grid-column: 1/-1;
 }
-body .science {
+body #science {
   background-color: var(--science-color);
   flex: 2;
   display: grid;
@@ -58,19 +58,19 @@ body .science {
   grid-template-rows: 5fr repeat(4, 2fr);
   text-align: center;
 }
-body .science div {
+body #science div {
   border: solid 2px black;
 }
-body .science button {
+body #science button {
   background-color: inherit;
 }
-body .science button:hover {
+body #science button:hover {
   background-color: #888;
 }
-body .science button:active {
+body #science button:active {
   border: outset 10px gold;
 }
-body .hidden {
+body .hidden, body .hidden#log, body .hidden#science {
   display: none;
 }
 body .basic {
@@ -124,10 +124,6 @@ body .basic #screen {
 body .basic #screen.light {
   background-color: yellow;
 }
-body .basic #screen sup {
-  font-size: small;
-  margin: 0 0.5em;
-}
 
 @media screen and (max-width: 800px) {
   body {
@@ -138,14 +134,14 @@ body .basic #screen sup {
     max-height: 3vh;
     max-width: 3vh;
   }
-  body .science {
+  body #science {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
   }
-  body .science:first-child {
+  body #science:first-child {
     grid-column: 1/-1;
   }
-  body .science #base {
+  body #science #base {
     grid-area: 2/4/4/5;
   }
   body .MO1 {
@@ -154,7 +150,7 @@ body .basic #screen sup {
   body .MO2 {
     order: 2;
   }
-  body .log {
+  body #log {
     order: 1;
   }
   body * {

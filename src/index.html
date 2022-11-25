@@ -7,7 +7,7 @@
     <title>My Calculator</title>
   </head>
   <body class="dark">
-    <div class="log hidden">
+    <div id="log" class="hidden">
       <div>
         memory
         <hr />
@@ -22,19 +22,19 @@
       <button id="config" class="action" onclick="openConfig()">
         <img src="\images\settings.svg" alt="settings" />
       </button>
-      <button id="themeHandler" onclick="screenLight()">
-        <img src="\images\light.svg" alt="light/dark mode" />
+      <button id="screenLight" onclick="screenLight()">
+        <img src="\images\light.svg" alt="screen light button" />
       </button>
       <div id="screen" class="screen triple"></div>
       <button id="back" onclick="back()">
         <img src="\images\back.svg" alt="back arrow" />
       </button>
-      <button id="log" onclick="openLog()">
+      <button id="logBtn" onclick="openLog()">
         <img src="\images\history.svg" alt="history" />
       </button>
       <button id="clear" class="triple" onclick="clearScreen()">c</button>
       <button id="/" class="operator editor">/</button>
-      <button id="scientific" onclick="openScientific()">
+      <button id="scienceBtn" onclick="openScientific()">
         <img src="\images\scientific.svg" alt="scientific section" />
       </button>
       <button id="7" class="digit secondary editor">7</button>
@@ -57,12 +57,12 @@
       <button id="+-" onclick="alert(id)">
         +<br />
         -
-      </button>
+      </button> 
       <button id="0" class="digit secondary editor">0</button>
       <button id="." class="dot secondary editor">.</button>
       <button id="=" class="execute" onclick="calculate()">=</button>
     </div>
-    <div class="science hidden">
+    <div id="science" class="hidden">
       <div class="title fullWidth">scientific</div>
       <button><img src="/images/x-squared.svg" alt="x squared" /></button
       ><button>
@@ -76,6 +76,6 @@
     </div>
     <script src="/scripts/application.js"></script>
     <script src="/scripts/calculator.js"></script>
-    <!-- <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script> -->
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
   </body>
 </html>

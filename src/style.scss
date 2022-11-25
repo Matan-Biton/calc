@@ -29,7 +29,7 @@ body {
   font-family: cursive;
   overflow: hidden;
 
-  .log {
+  #log {
     background-color: var(--log-color);
     flex: 2;
     * {
@@ -69,7 +69,7 @@ body {
     grid-column: 1/-1;
   }
 
-  .science {
+  #science {
     background-color: var(--science-color);
     flex: 2;
     display: grid;
@@ -92,8 +92,9 @@ body {
   }
 
   .hidden {
+    &,&#log,&#science{
     display: none;
-  }
+    }  }
 
   .basic {
     flex: 5;
@@ -153,10 +154,6 @@ body {
       &.light {
         background-color: yellow;
       }
-      sup {
-        font-size: small;
-        margin: 0 .5em;
-      }
     }
   }
 }
@@ -173,7 +170,7 @@ body {
       }
     }
 
-    .science {
+    #science {
       grid-template-columns: repeat(4, 1fr);
       grid-template-rows: auto;
 
@@ -193,7 +190,7 @@ body {
       order: 2;
     }
 
-    .log {
+    #log {
       order: 1;
     }
 
