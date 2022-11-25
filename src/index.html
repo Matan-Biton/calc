@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="style.css" />
     <title>My Calculator</title>
   </head>
-  <body class="dark">
+  <body>
+    <div id="infoPopup"><div>Developer name: Matan Biton <br> Calculator Version: Stage IV <br> This is my basic calculator, have fun with it :)</div><button id="infoRead" onclick="infoRead()">click to dismiss</button></div>
     <div id="log" class="hidden">
       <div>
         memory
@@ -64,12 +65,12 @@
     </div>
     <div id="science" class="hidden">
       <div class="title fullGridWidth">scientific</div>
-      <button><img src="/images/x-squared.svg" alt="x squared" /></button
-      ><button>
+      <button id="^2"><img src="/images/x-squared.svg" alt="x squared" /></button
+      ><button id="2√">
         <img src="/images/x-squared-root.svg" alt="x squared root" /></button
-      ><button class="MO2">
+      ><button id="^" class="MO2" onclick="alert('not working :|')">
         <img src="/images/x-pow-y.svg" alt="x powered by y" /></button
-      ><button class="MO2">
+      ><button id="√" class="MO2" onclick="alert('not working :|')">
         <img src="/images/yth-root-x.svg" alt="the yth root of x" /></button
       ><button class="MO1">mod</button><button class="MO2">𝛑</button
       ><button class="fullGridWidth MO1" id="base">Base<sub>2</sub></button>

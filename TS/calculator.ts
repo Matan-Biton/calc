@@ -81,3 +81,33 @@ function scienceEval() {
     firstOperand = "*/".includes(tokens[3]) ? helper(2) : helper(0);
   }
 }
+
+function myPow(pow: number) {
+  const val = curOperand ? curOperand : firstOperand && firstOperand;
+  const ans = Math.pow(Number(val), pow);
+  toMemory(`${val}**${pow}`);
+  curOperand = ans.toString();
+  screenElement.innerText = firstOperand
+    ? firstOperand + " " + curOperator + " " + curOperand
+    : curOperand;
+}
+
+function squared() {
+  myPow(2)
+}
+
+function squareRoot() {
+  myPow(0.5)
+}
+
+function advancedPow() {
+  
+}
+
+function eventsForScience() {
+  byId("^2").addEventListener("click", squared);
+  byId("2√").addEventListener('click', squareRoot)
+  // byId("^").addEventListener('click', advancedPow)
+}
+
+eventsForScience();

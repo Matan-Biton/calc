@@ -22,12 +22,28 @@
 }
 
 body {
+  position: relative;
   display: flex;
   width: 90vw;
   height: 100vh;
   margin-inline: auto;
   font-family: cursive;
   overflow: hidden;
+}
+body #infoPopup {
+  background-color: #bbb;
+  left: 25vw;
+  top: 30vh;
+  border: 2px solid black;
+  border-radius: 1rem;
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+  width: 40vw;
+  height: 40vh;
 }
 body #log {
   background-color: var(--log-color);
@@ -68,7 +84,7 @@ body #science button:hover {
   background-color: #888;
 }
 body #science button:active {
-  border: outset 10px gold;
+  border: outset 3px gold;
 }
 body .hidden, body .hidden#log, body .hidden#science {
   display: none;
@@ -97,7 +113,7 @@ body .basic button:hover {
   background-color: #888;
 }
 body .basic button:active {
-  border: outset 10px gold;
+  border: outset 3px gold;
 }
 body .basic button.btnActive {
   background-color: rgba(255, 166, 0, 0.75);

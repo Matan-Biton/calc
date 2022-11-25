@@ -29,7 +29,7 @@ function openLog() {
 
 function toMemory(exp: string) {
   const newChild = document.createElement("div");
-  newChild.innerHTML = `${exp.replace("*", "x")}${window.innerWidth >= 800 ? '<br>' : ''} = ${eval(exp.replace("x", "*"))}`;
+  newChild.innerHTML = `${displayOrEval(exp, "display")}${window.innerWidth >= 800 ? '<br>' : ''} = ${eval(displayOrEval(exp, "eval"))}`;
   memory.prepend(newChild);
 }
 
@@ -45,9 +45,11 @@ function screenLight() {
 }
 
 function alertInfo() {
-  alert(
-    "Developer name: Matan Biton\nCalculator Version: Stage III\nThis is my basic calculator, have fun with it :)"
-  );
+  byId('infoPopup').style.display = 'flex';
+}
+
+function infoRead() {
+    byId("infoPopup").style.display = "none";
 }
 
 function openConfig() {
@@ -72,6 +74,13 @@ function clearScreen() {
   screenElement.textContent = "";
   memory.innerHTML = "";
   curOperand = firstOperand = curOperator = "";
+}
+
+function displayOrEval(str: string, target: string) {
+  if (target == "display") {
+    return str.replaceAll("**", "^").replaceAll("*", "x")
+  }
+  return str.replaceAll("^", "**").replaceAll("x", "*");
 }
 
 //calling back a function that sets listeners to objects in the HTML post load
