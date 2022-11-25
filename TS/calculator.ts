@@ -38,8 +38,8 @@ function calculate() {
 }
 
 function operatorClicked(id: string) {
-  //when able, calculates
-  //when there are two operands (and operator) there is a call for calculate and then an update for the first operand and operator
+  //do nothing if called before parsing an operand, if there is an operator (that means there are two operands as well) evaluates
+  // and then updates the first operand and current operator
   if (!screenElement.innerText) {
     return;
   }
