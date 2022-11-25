@@ -4,6 +4,7 @@ let curOperator = "";
 const screenElement = byId("screen");
 const memory = byId("memory");
 let isScienceOn = false;
+let remote = false;
 function byId(id) {
     return document.getElementById(id);
 }
@@ -24,6 +25,16 @@ function operandParsing(id) {
     screenElement.textContent += id;
 }
 function calculate() {
+    if (remote) {
+        async function rcalc() {
+            const response = await fetch(`http://api.mathjs.org/v4/?expr=${encodeURIComponent(screenElement.innerText)}`);
+            console.log(response);
+            const ans = await response.text();
+            alert(ans);
+        }
+        rcalc();
+        return;
+    }
     if (curOperand && firstOperand) {
         firstOperand = eval(screenElement.innerText.replace("x", "*")).toString();
         curOperator = curOperand = "";
@@ -87,11 +98,13 @@ function squared() {
 function squareRoot() {
     myPow(0.5);
 }
-function advancedPow() {
+function remoteBtn() {
+    byId("cloud").classList.toggle("btnActive");
+    remote = !remote;
 }
 function eventsForScience() {
     byId("^2").addEventListener("click", squared);
-    byId("2√").addEventListener('click', squareRoot);
+    byId("2√").addEventListener("click", squareRoot);
     // byId("^").addEventListener('click', advancedPow)
 }
 eventsForScience();
