@@ -20,9 +20,9 @@ function openLog() {
     byId("log").classList.toggle("hidden");
     byId("logBtn").classList.toggle("btnActive");
 }
-function toMemory() {
+function toMemory(exp) {
     const newChild = document.createElement("div");
-    newChild.innerHTML = `${screenElement.innerText}${window.innerWidth >= 800 ? '<br>' : ''} = ${firstOperand}`;
+    newChild.innerHTML = `${exp.replace("*", "x")}${window.innerWidth >= 800 ? '<br>' : ''} = ${eval(exp.replace("x", "*"))}`;
     memory.prepend(newChild);
 }
 function openScientific() {

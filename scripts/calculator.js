@@ -27,7 +27,7 @@ function calculate() {
     if (curOperand && firstOperand) {
         firstOperand = eval(screenElement.innerText.replace("x", "*")).toString();
         curOperator = curOperand = "";
-        toMemory();
+        toMemory(screenElement.innerText);
         screenElement.textContent = firstOperand;
     }
 }
@@ -51,26 +51,24 @@ function operatorClicked(id) {
     screenElement.textContent = firstOperand + " " + curOperator + " ";
 }
 function scienceEval() {
+    function helper(start) {
+        const expressionToEval = tokens[start] + tokens[start + 1] + tokens[start + 2];
+        let res = "";
+        for (let i = 0; i < start; i++) {
+            res += tokens[i] + " ";
+        }
+        res += eval(expressionToEval).toString();
+        for (let i = start + 3; i < tokens.length; i++) {
+            res += " " + tokens[i];
+        }
+        toMemory(expressionToEval);
+        return res;
+    }
     const tokens = screenElement.innerText.replace("x", "*").split(" ");
     if ("*/".includes(tokens[1])) {
         firstOperand = eval(tokens[0] + tokens[1] + tokens[2]).toString();
     }
     else if (tokens.length > 4) {
-        if ("*/".includes(tokens[3])) {
-            firstOperand =
-                tokens[0] +
-                    " " +
-                    tokens[1] +
-                    " " +
-                    eval(tokens[2] + tokens[3] + tokens[4]).toString();
-        }
-        else {
-            firstOperand =
-                eval(tokens[0] + tokens[1] + tokens[2]).toString() +
-                    " " +
-                    tokens[3] +
-                    " " +
-                    tokens[4];
-        }
+        firstOperand = "*/".includes(tokens[3]) ? helper(2) : helper(0);
     }
 }

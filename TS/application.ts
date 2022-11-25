@@ -27,9 +27,9 @@ function openLog() {
   byId("logBtn").classList.toggle("btnActive");
 }
 
-function toMemory() {
+function toMemory(exp: string) {
   const newChild = document.createElement("div");
-  newChild.innerHTML = `${screenElement.innerText}${window.innerWidth >= 800 ? '<br>' : ''} = ${firstOperand}`;
+  newChild.innerHTML = `${exp.replace("*", "x")}${window.innerWidth >= 800 ? '<br>' : ''} = ${eval(exp.replace("x", "*"))}`;
   memory.prepend(newChild);
 }
 
