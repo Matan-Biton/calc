@@ -85,3 +85,4 @@ function displayOrEval(str: string, target: string) {
 
 //calling back a function that sets listeners to objects in the HTML post load
 document.addEventListener("DOMContentLoaded", onStart);
+
